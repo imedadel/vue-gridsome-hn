@@ -19,7 +19,12 @@
 
     <main class="wrapper-main">
       <article v-for="edge in $page.posts.edges" :key="edge.node.id">
-        <h2>{{ edge.node.title }}</h2>
+        <h2><a :href="edge.node.url || edge.node.link">{{ edge.node.title }}</a>
+        <span style="padding-left: 1em;" v-if="edge.node.url">[external]</span>
+        <span style="padding-left: 1em;" v-else>[hackernews]</span>
+        <span style="padding-left: 1em;" ><a :href="edge.node.link">[comments]</a></span>
+        <span style="padding-left: 1em;" >[{{edge.node.points}} ⭐]</span>
+        </h2>
       </article>
     </main>
 
@@ -33,6 +38,10 @@ query Posts {
       node {
         title
         id
+        points
+        time
+        url
+        link
       }
     }
   }
@@ -52,8 +61,8 @@ export default {
   margin-right: 1rem;
 }
 .wrapper-main {
-  font-famiy: 'SF Pro Text', Arial, sans-serif;
-  font-size: 18px;
+  font-family: 'SF Pro Text', Arial, sans-serif;
+  font-size: 16px;
   margin-top: 5em;
 }
 </style>

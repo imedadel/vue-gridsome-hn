@@ -16,7 +16,11 @@ module.exports = function (api) {
     for (const item of data) {
       contentType.addNode({
         id: item.id,
-        title: item.title
+        title: item.title,
+        points: item.points,
+        time: item.time,
+        url: item.url,
+        link: 'https://news.ycombinator.com/item?id=' + item.id
       })
     }
     // Use the Data Store API here: https://gridsome.org/docs/data-store-api
