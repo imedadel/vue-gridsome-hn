@@ -1,0 +1,13 @@
+{
+  "name": "vue-gridsome-hn",
+  "private": true,
+  "scripts": {
+    "build": "gridsome build",
+    "develop": "gridsome develop",
+    "explore": "gridsome explore"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "gridsome": "^0.6.0"
+  }
+}
